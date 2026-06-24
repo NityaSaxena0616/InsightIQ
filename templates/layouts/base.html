@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightIQ</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>InsightIQ</h2>
+
+        <ul>
+            <li><a href="{% url 'home' %}">Dashboard</a></li>
+            <li><a href="{% url 'upload' %}">Upload Data</a></li>
+            <li><a href="{% url 'analytics' %}">Analytics</a></li>
+            <li><a href="{% url 'reports' %}">Reports</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Navbar -->
+        <div class="navbar">
+            <h1>Business Intelligence Platform</h1>
+        </div>
+
+        {% if messages %}
+            <div class="messages" aria-live="polite">
+                {% for message in messages %}
+                    <div class="message message-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+</body>
+</html>

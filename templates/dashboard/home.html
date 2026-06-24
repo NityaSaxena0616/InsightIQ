@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h2>Dashboard Overview</h2>
+
+{% if latest_file %}
+<p class="page-meta">Showing metrics from "{{ latest_file.file.name }}".</p>
+{% else %}
+<p class="page-meta">Upload a CSV, XLS, or XLSX sales file to populate the dashboard.</p>
+{% endif %}
+
+<div class="dashboard-grid">
+
+    <div class="card metric-card">
+        <div class="metric-label">Total Revenue</div>
+        <div class="metric-value">${{ revenue }}</div>
+    </div>
+
+    <div class="card metric-card revenue">
+        <div class="metric-label">Total Profit</div>
+        <div class="metric-value">${{ profit }}</div>
+    </div>
+
+    <div class="card metric-card users">
+        <div class="metric-label">Total Orders</div>
+        <div class="metric-value">{{ orders }}</div>
+    </div>
+
+    <div class="card metric-card conversion">
+        <div class="metric-label">Customers</div>
+        <div class="metric-value">{{ customers }}</div>
+    </div>
+
+</div>
+
+{% endblock %}

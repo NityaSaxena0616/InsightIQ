@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h2>Analytics</h2>
+
+{% if source_file %}
+<p class="page-meta">Calculated from "{{ source_file.file.name }}". <br> Growth compares the latest two calendar months (when a date column is available).</p>
+{% else %}
+<p class="page-meta">No successfully processed dataset is available.</p>
+{% endif %}
+
+<div class="dashboard-grid">
+
+    <div class="card metric-card">
+        <div class="metric-label">Total Transactions</div>
+        <div class="metric-value">{{ total_transactions }}</div>
+    </div>
+
+    <div class="card metric-card revenue">
+        <div class="metric-label">Average Transaction</div>
+        <div class="metric-value">{{ avg_transaction }}</div>
+    </div>
+
+    <div class="card metric-card users">
+        <div class="metric-label">Growth Rate</div>
+        <div class="metric-value">{{ growth_rate }}</div>
+    </div>
+
+    <div class="card metric-card revenue">
+        <div class="metric-label">Revenue</div>
+        <div class="metric-value">${{ revenue }}</div>
+    </div>
+
+    <div class="card metric-card conversion">
+        <div class="metric-label">Profit</div>
+        <div class="metric-value">${{ profit }}</div>
+    </div>
+
+</div>
+
+{% endblock %}
