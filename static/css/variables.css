@@ -1,0 +1,106 @@
+/* ============================================
+   InsightIQ Design System
+   ============================================ */
+
+:root{
+
+    /* =======================
+       Brand Colors
+    ======================= */
+
+    --primary: #A78BFA;
+    --primary-hover: #8B5CF6;
+
+    --secondary: #C4B5FD;
+
+    /* =======================
+       Pastel Analytics Colors
+    ======================= */
+
+    --revenue: #C7F9CC;
+    --profit: #E9D5FF;
+    --orders: #FFE5B4;
+    --customers: #BFDBFE;
+
+    --warning: #FEF3C7;
+    --danger: #FECACA;
+
+    /* =======================
+       Backgrounds
+    ======================= */
+
+    --bg: #F8FAFC;
+
+    --card: #FFFFFF;
+
+    --sidebar: #FFFFFF;
+
+    --navbar: rgba(255,255,255,.80);
+
+    /* =======================
+       Text
+    ======================= */
+
+    --text: #334155;
+
+    --text-light: #64748B;
+
+    --text-muted: #94A3B8;
+
+    /* =======================
+       Borders
+    ======================= */
+
+    --border: #E5E7EB;
+
+    /* =======================
+       Radius
+    ======================= */
+
+    --radius-sm:12px;
+    --radius:18px;
+    --radius-lg:24px;
+    --radius-xl:32px;
+
+    /* =======================
+       Shadows
+    ======================= */
+
+    --shadow-sm:
+        0 4px 12px rgba(15,23,42,.05);
+
+    --shadow:
+
+        0 8px 30px rgba(15,23,42,.08);
+
+    --shadow-lg:
+
+        0 15px 40px rgba(15,23,42,.10);
+
+    /* =======================
+       Animation
+    ======================= */
+
+    --transition:.30s ease;
+
+    /* =======================
+       Sidebar
+    ======================= */
+
+    --sidebar-width:280px;
+
+    /* =======================
+       Navbar
+    ======================= */
+
+    --navbar-height:80px;
+
+    /* =======================
+       Layout
+    ======================= */
+
+    --page-padding:40px;
+
+    --card-padding:24px;
+
+}

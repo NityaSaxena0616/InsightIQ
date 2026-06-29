@@ -1,0 +1,447 @@
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+    gap:20px;
+}
+
+.dashboard-header h1{
+    font-size:38px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.dashboard-header p{
+    color:var(--text-light);
+    font-size:16px;
+}
+
+.dashboard-actions{
+    display:flex;
+    gap:16px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.primary-btn,
+.secondary-btn{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:14px 22px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.primary-btn{
+
+    background:#A78BFA;
+    color:white;
+    box-shadow:0 10px 30px rgba(167,139,250,.35);
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-4px);
+
+    background:#8B5CF6;
+
+}
+
+.secondary-btn{
+
+    background:white;
+
+    color:#64748B;
+
+    border:1px solid #E5E7EB;
+
+}
+
+.secondary-btn:hover{
+
+    background:#F8FAFC;
+
+    transform:translateY(-4px);
+
+}
+
+
+/* =====================================================
+   KPI GRID
+===================================================== */
+
+.metrics-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:24px;
+
+    margin-bottom:35px;
+
+}
+
+
+/* =====================================================
+   KPI CARD
+===================================================== */
+
+.metric-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:center;
+
+    transition:.35s;
+
+    border:1px solid #ECECEC;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
+
+}
+
+.metric-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 45px rgba(15,23,42,.10);
+
+}
+
+.metric-icon{
+
+    width:68px;
+
+    height:68px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+}
+
+.metric-info{
+
+    flex:1;
+
+}
+
+.metric-title{
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+
+.metric-info h2{
+
+    margin:8px 0;
+
+    font-size:34px;
+
+    font-family:'Space Grotesk',sans-serif;
+
+}
+
+.metric-info small{
+
+    color:#94A3B8;
+
+}
+
+
+/* =====================================================
+   CARD COLORS
+===================================================== */
+
+.revenue-card .metric-icon{
+
+    background:#C7F9CC;
+
+}
+
+.profit-card .metric-icon{
+
+    background:#E9D5FF;
+
+}
+
+.order-card .metric-icon{
+
+    background:#FFE5B4;
+
+}
+
+.customer-card .metric-icon{
+
+    background:#BFDBFE;
+
+}
+
+
+/* =====================================================
+   LOWER GRID
+===================================================== */
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:24px;
+
+    margin-bottom:24px;
+
+}
+
+
+/* =====================================================
+   GENERAL CARD
+===================================================== */
+
+.dashboard-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    border:1px solid #ECECEC;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
+
+}
+
+.dashboard-card h3{
+
+    margin-bottom:22px;
+
+}
+
+
+/* =====================================================
+   QUICK ACTIONS
+===================================================== */
+
+.quick-actions{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.action-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px 18px;
+
+    border-radius:16px;
+
+    background:#F8FAFC;
+
+    text-decoration:none;
+
+    color:#334155;
+
+    transition:.3s;
+
+}
+
+.action-btn:hover{
+
+    background:#F3E8FF;
+
+    transform:translateX(8px);
+
+}
+
+
+/* =====================================================
+   AI CARD
+===================================================== */
+
+.ai-card{
+
+    background:linear-gradient(
+        135deg,
+        #F5F3FF,
+        #EFF6FF
+    );
+
+}
+
+.ai-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.ai-content ul{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    margin-top:5px;
+
+}
+
+
+/* =====================================================
+   RECENT ACTIVITY
+===================================================== */
+
+.activity-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.activity-item{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:flex-start;
+
+}
+
+.activity-item i{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:18px;
+
+    background:#F3F4F6;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#8B5CF6;
+
+    font-size:20px;
+
+}
+
+.activity-item strong{
+
+    display:block;
+
+    margin-bottom:5px;
+
+}
+
+.activity-item p{
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1200px){
+
+.metrics-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.dashboard-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.dashboard-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.dashboard-actions{
+
+width:100%;
+
+flex-direction:column;
+
+}
+
+.metrics-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}

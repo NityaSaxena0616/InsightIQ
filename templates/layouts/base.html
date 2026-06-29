@@ -1,48 +1,204 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>InsightIQ</title>
 
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Google Icons -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cards.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+    <link rel="stylesheet" href="{% static 'css/analytics.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reports.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
 </head>
 
 <body>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>InsightIQ</h2>
+    <!-- =========================
+         Sidebar
+    ========================== -->
 
-        <ul>
-            <li><a href="{% url 'home' %}">Dashboard</a></li>
-            <li><a href="{% url 'upload' %}">Upload Data</a></li>
-            <li><a href="{% url 'analytics' %}">Analytics</a></li>
-            <li><a href="{% url 'reports' %}">Reports</a></li>
-        </ul>
-    </div>
+    <aside class="sidebar">
 
-    <!-- Main Content -->
-    <div class="main-content">
+        <div>
 
-        <!-- Navbar -->
-        <div class="navbar">
-            <h1>Business Intelligence Platform</h1>
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                </div>
+
+                <div class="logo-text">
+
+                    <h2>InsightIQ</h2>
+
+                    <p>Business Analytics</p>
+
+                </div>
+
+            </div>
+
+            <nav>
+
+                <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+
+                <a href="{% url 'upload' %}" class="{% if request.resolver_match.url_name == 'upload' %}active{% endif %}">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    Upload Workspace
+                </a>
+
+                <a href="{% url 'analytics' %}" class="{% if request.resolver_match.url_name == 'analytics' %}active{% endif %}">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Analytics Studio
+                </a>
+
+                <a href="{% url 'reports' %}" class="{% if request.resolver_match.url_name == 'reports' %}active{% endif %}">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Report Center
+                </a>
+
+            </nav>
+
         </div>
 
-        {% if messages %}
-            <div class="messages" aria-live="polite">
-                {% for message in messages %}
-                    <div class="message message-{{ message.tags }}">{{ message }}</div>
-                {% endfor %}
+        <div class="sidebar-footer">
+
+            <div class="ai-box">
+
+                <h4>✨ InsightIQ AI</h4>
+
+                <p>
+
+                    Upload your data.
+                    Discover patterns.
+                    Make smarter decisions.
+
+                </p>
+
             </div>
-        {% endif %}
 
-        {% block content %}
-        {% endblock %}
+        </div>
 
-    </div>
+    </aside>
+
+    <!-- =========================
+         Main Content
+    ========================== -->
+
+    <main class="content">
+
+        <!-- NAVBAR -->
+
+        <div class="topbar">
+
+            <div class="topbar-left">
+
+                <div class="topbar-title">
+
+                    Welcome back 👋
+
+                </div>
+
+                <div class="topbar-subtitle">
+
+                    Turn business data into actionable insights.
+
+                </div>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Search datasets, reports...">
+
+                </div>
+
+                <div class="icon-btn">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                </div>
+
+                <div class="dataset-chip">
+
+                    <div class="dataset-icon">
+
+                        <i class="fa-solid fa-file-csv"></i>
+
+                    </div>
+
+                    <div class="dataset-info">
+
+                        <div class="dataset-name">
+
+                            Latest Dataset
+
+                        </div>
+
+                        <div class="dataset-date">
+
+                            Ready for analysis
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile">
+
+                    N
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PAGE CONTENT -->
+
+        <div class="fade">
+
+            {% block content %}
+
+            {% endblock %}
+
+        </div>
+
+    </main>
 
 </body>
+
 </html>

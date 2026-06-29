@@ -1,0 +1,214 @@
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar{
+
+    position:fixed;
+
+    top:20px;
+
+    left:20px;
+
+    width:270px;
+
+    height:calc(100vh - 40px);
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.5);
+
+    border-radius:28px;
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:28px;
+
+    z-index:1000;
+
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:45px;
+
+}
+
+.logo-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        #C4B5FD,
+        #BFDBFE
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:24px;
+
+}
+
+.logo-text h2{
+
+    margin:0;
+
+    font-size:24px;
+
+}
+
+.logo-text p{
+
+    margin-top:2px;
+
+    font-size:13px;
+
+}
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+.sidebar nav a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:14px 18px;
+
+    border-radius:16px;
+
+    color:var(--text-light);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+
+.sidebar nav a i{
+
+    font-size:20px;
+
+}
+
+
+.sidebar nav a:hover{
+
+    background:#F3F4F6;
+
+    color:var(--primary);
+
+    transform:translateX(6px);
+
+}
+
+
+.sidebar nav a.active{
+
+    background:#EDE9FE;
+
+    color:#6D28D9;
+
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.sidebar-footer{
+
+    padding-top:25px;
+
+    border-top:1px solid var(--border);
+
+}
+
+
+.ai-box{
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        #EDE9FE,
+        #DBEAFE
+    );
+
+}
+
+
+.ai-box h4{
+
+    margin-bottom:6px;
+
+}
+
+
+.ai-box p{
+
+    font-size:13px;
+
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.content{
+
+    margin-left:320px;
+
+    padding:40px;
+
+    min-height:100vh;
+
+}

@@ -2,36 +2,230 @@
 
 {% block content %}
 
-<h2>Dashboard Overview</h2>
+<section class="dashboard-header">
 
-{% if latest_file %}
-<p class="page-meta">Showing metrics from "{{ latest_file.file.name }}".</p>
-{% else %}
-<p class="page-meta">Upload a CSV, XLS, or XLSX sales file to populate the dashboard.</p>
-{% endif %}
-
-<div class="dashboard-grid">
-
-    <div class="card metric-card">
-        <div class="metric-label">Total Revenue</div>
-        <div class="metric-value">${{ revenue }}</div>
+    <div>
+        <h1>Business Snapshot</h1>
+        <p>Track your business performance at a glance.</p>
     </div>
 
-    <div class="card metric-card revenue">
-        <div class="metric-label">Total Profit</div>
-        <div class="metric-value">${{ profit }}</div>
+    <div class="dashboard-actions">
+
+        <a href="{% url 'upload' %}" class="primary-btn">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            Upload Dataset
+        </a>
+
+        <a href="{% url 'analytics' %}" class="secondary-btn">
+            <i class="fa-solid fa-chart-line"></i>
+            Visualization Studio
+        </a>
+
     </div>
 
-    <div class="card metric-card users">
-        <div class="metric-label">Total Orders</div>
-        <div class="metric-value">{{ orders }}</div>
+</section>
+
+
+<!-- KPI CARDS -->
+
+<section class="metrics-grid">
+
+    <div class="metric-card revenue-card">
+
+        <div class="metric-icon">
+            💰
+        </div>
+
+        <div class="metric-info">
+
+            <span class="metric-title">Revenue</span>
+
+            <h2>${{ revenue }}</h2>
+
+            <small>Total Revenue</small>
+
+        </div>
+
     </div>
 
-    <div class="card metric-card conversion">
-        <div class="metric-label">Customers</div>
-        <div class="metric-value">{{ customers }}</div>
+
+    <div class="metric-card profit-card">
+
+        <div class="metric-icon">
+            📈
+        </div>
+
+        <div class="metric-info">
+
+            <span class="metric-title">Profit</span>
+
+            <h2>${{ profit }}</h2>
+
+            <small>Total Profit</small>
+
+        </div>
+
     </div>
 
-</div>
+
+    <div class="metric-card order-card">
+
+        <div class="metric-icon">
+            📦
+        </div>
+
+        <div class="metric-info">
+
+            <span class="metric-title">Orders</span>
+
+            <h2>{{ orders }}</h2>
+
+            <small>Total Orders</small>
+
+        </div>
+
+    </div>
+
+
+    <div class="metric-card customer-card">
+
+        <div class="metric-icon">
+            👥
+        </div>
+
+        <div class="metric-info">
+
+            <span class="metric-title">Customers</span>
+
+            <h2>{{ customers }}</h2>
+
+            <small>Unique Customers</small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOWER GRID -->
+
+<section class="dashboard-grid">
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="dashboard-card">
+
+        <h3>
+            ⚡ Quick Actions
+        </h3>
+
+        <div class="quick-actions">
+
+            <a href="{% url 'upload' %}" class="action-btn">
+                <i class="fa-solid fa-upload"></i>
+                Upload New Dataset
+            </a>
+
+            <a href="{% url 'analytics' %}" class="action-btn">
+                <i class="fa-solid fa-chart-column"></i>
+                Open Visualizations
+            </a>
+
+            <a href="{% url 'reports' %}" class="action-btn">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                View History
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI CARD -->
+
+    <div class="dashboard-card ai-card">
+
+        <h3>✨ InsightIQ AI</h3>
+
+        <div class="ai-content">
+
+            <p>
+                Upload a dataset to receive intelligent business insights,
+                revenue trends, region analysis, and product recommendations.
+            </p>
+
+            <ul>
+
+                <li>✔ Revenue trend analysis</li>
+
+                <li>✔ Product performance</li>
+
+                <li>✔ Region-wise insights</li>
+
+                <li>✔ Business event impact</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RECENT ACTIVITY -->
+
+<section class="dashboard-card recent-card">
+
+    <h3>🕒 Recent Activity</h3>
+
+    <div class="activity-list">
+
+        <div class="activity-item">
+
+            <i class="fa-solid fa-file-csv"></i>
+
+            <div>
+
+                <strong>Latest Dataset</strong>
+
+                <p>Your most recent uploaded dataset is ready for analysis.</p>
+
+            </div>
+
+        </div>
+
+        <div class="activity-item">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <div>
+
+                <strong>Visualization Studio</strong>
+
+                <p>Create interactive charts and compare business performance.</p>
+
+            </div>
+
+        </div>
+
+        <div class="activity-item">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <div>
+
+                <strong>AI Insights</strong>
+
+                <p>Business recommendations will appear here after analysis.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}

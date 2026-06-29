@@ -1,19 +1,204 @@
 {% extends 'layouts/base.html' %}
+{% load static %}
 
 {% block content %}
 
-<h2>Upload Sales Data</h2>
+<section class="dashboard-header">
 
-<div class="card upload-card">
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        
-        <div style="margin-bottom: 20px;">
-            {{ form.as_p }}
+    <div>
+        <h1>Upload Workspace</h1>
+        <p>
+            Upload your sales dataset and enrich it with business context to generate
+            deeper analytics.
+        </p>
+    </div>
+
+</section>
+
+
+<form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <!-- =======================
+         SALES DATASET
+    ======================== -->
+
+    <div class="dashboard-card upload-card">
+
+        <div class="section-heading">
+
+            <div class="section-icon purple">
+                <i class="fa-solid fa-database"></i>
+            </div>
+
+            <div>
+
+                <h2>Sales Dataset</h2>
+
+                <p>
+                    Upload one or more CSV or Excel files.
+                </p>
+
+            </div>
+
         </div>
 
-        <button type="submit">Upload and analyze</button>
-    </form>
-</div>
+        <div class="upload-zone">
+
+            {{ form.files }}
+
+            <small>
+                Supported formats:
+                CSV • XLS • XLSX
+                (Maximum 10 MB per file)
+            </small>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =======================
+         BUSINESS CONTEXT
+    ======================== -->
+
+    <div class="dashboard-card upload-card">
+
+        <div class="section-heading">
+
+            <div class="section-icon blue">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <div>
+
+                <h2>Business Context</h2>
+
+                <p>
+                    Help InsightIQ understand what happened during the selected
+                    business period.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="info-box">
+
+            <h4>Examples</h4>
+
+            <div class="example-grid">
+
+                <span>📢 Marketing Campaigns</span>
+
+                <span>💰 Price Changes</span>
+
+                <span>🏢 New Competitors</span>
+
+                <span>🏛 Government Policies</span>
+
+                <span>🎉 Festivals</span>
+
+                <span>🚚 Supply Chain Issues</span>
+
+            </div>
+
+        </div>
+
+        <label class="field-label">
+
+            Upload Supporting Document
+
+        </label>
+
+        {{ form.business_context }}
+
+        <p class="field-help">
+
+            PDF, DOC, DOCX or TXT
+
+        </p>
+
+
+        <div class="divider">
+
+            <span>OR</span>
+
+        </div>
+
+
+        <label class="field-label">
+
+            Manual Business Notes
+
+        </label>
+
+        {{ form.business_notes }}
+
+    </div>
+
+
+
+    <!-- =======================
+         OPTIONS
+    ======================== -->
+
+    <div class="dashboard-card upload-card">
+
+        <div class="section-heading">
+
+            <div class="section-icon green">
+                <i class="fa-solid fa-sliders"></i>
+            </div>
+
+            <div>
+
+                <h2>Processing Options</h2>
+
+                <p>
+
+                    Configure how InsightIQ should handle this upload.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="checkbox-row">
+
+            {{ form.override_existing }}
+
+            <label>
+
+                Replace earlier datasets having the same filename.
+
+            </label>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =======================
+         BUTTON
+    ======================== -->
+
+    <div class="submit-section">
+
+        <button class="primary-btn upload-btn">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            Generate Analytics Workspace
+
+        </button>
+
+    </div>
+
+</form>
 
 {% endblock %}
