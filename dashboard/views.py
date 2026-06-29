@@ -1,6 +1,9 @@
 import csv
 import os
 import re
+import json
+import pandas as pd
+
 
 from django.shortcuts import render, redirect
 
@@ -8,6 +11,7 @@ from .forms import UploadForm
 from .models import SalesFile
 from datetime import datetime
 from collections import defaultdict
+from dashboard.services.analytics import build_analytics_payload
 
 
 def normalize_column(column_name):
@@ -302,6 +306,8 @@ def calculate_growth_rate(file_path):
 
 
 def analytics(request):
+    import pandas as pd
+
     context = {
         'total_transactions': 0,
         'avg_transaction': 0,
@@ -309,24 +315,33 @@ def analytics(request):
         'revenue': 0,
         'profit': 0,
         'source_file': None,
+        'analytics': None,
     }
 
     latest_file = SalesFile.objects.last()
 
     if latest_file:
         try:
+            # Load CSV into DataFrame
+            df = pd.read_csv(latest_file.file.path)
+
+            # Generate analytics payload
+            analytics_payload = build_analytics_payload(df)
+
+            # Existing KPI calculations
             kpis = compute_kpis(latest_file.file.path)
 
             total_transactions = kpis['orders']
 
             context.update({
                 'source_file': latest_file,
+                'analytics': analytics_payload,
                 'total_transactions': total_transactions,
                 'avg_transaction': round(
                     kpis['revenue'] / total_transactions, 2
                 ) if total_transactions else 0,
                 'growth_rate': calculate_growth_rate(
-                latest_file.file.path
+                    latest_file.file.path
                 ),
                 'revenue': kpis['revenue'],
                 'profit': kpis['profit'],

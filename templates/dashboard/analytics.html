@@ -5,38 +5,89 @@
 <h2>Analytics</h2>
 
 {% if source_file %}
-<p class="page-meta">Calculated from "{{ source_file.file.name }}". <br> Growth compares the latest two calendar months (when a date column is available).</p>
+<p class="page-meta">
+    Calculated from "{{ source_file.file.name }}".<br>
+    Growth compares the latest two calendar months (when a date column is available).
+</p>
 {% else %}
-<p class="page-meta">No successfully processed dataset is available.</p>
+<p class="page-meta">
+    No successfully processed dataset is available.
+</p>
 {% endif %}
 
 <div class="dashboard-grid">
 
     <div class="card metric-card">
-        <div class="metric-label">Total Transactions</div>
+        <div class="metric-label">TOTAL TRANSACTIONS</div>
         <div class="metric-value">{{ total_transactions }}</div>
     </div>
 
     <div class="card metric-card revenue">
-        <div class="metric-label">Average Transaction</div>
+        <div class="metric-label">AVERAGE TRANSACTION</div>
         <div class="metric-value">{{ avg_transaction }}</div>
     </div>
 
     <div class="card metric-card users">
-        <div class="metric-label">Growth Rate</div>
-        <div class="metric-value">{{ growth_rate }}</div>
+        <div class="metric-label">GROWTH RATE</div>
+        <div class="metric-value">{{ growth_rate }}%</div>
     </div>
 
     <div class="card metric-card revenue">
-        <div class="metric-label">Revenue</div>
+        <div class="metric-label">REVENUE</div>
         <div class="metric-value">${{ revenue }}</div>
     </div>
 
     <div class="card metric-card conversion">
-        <div class="metric-label">Profit</div>
+        <div class="metric-label">PROFIT</div>
         <div class="metric-value">${{ profit }}</div>
     </div>
 
 </div>
+
+<br>
+
+<div class="card" style="padding:20px;">
+    <h3>Monthly Revenue Trend</h3>
+
+    <canvas id="revenueChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const labels = {{ analytics.charts.monthly_revenue.labels|safe }};
+const values = {{ analytics.charts.monthly_revenue.values|safe }};
+
+const ctx = document.getElementById('revenueChart');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Monthly Revenue',
+            data: values,
+            borderWidth: 3,
+            tension: 0.3,
+            fill: false
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: true
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
 
 {% endblock %}
