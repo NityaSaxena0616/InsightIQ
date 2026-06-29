@@ -53,11 +53,18 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{{ analytics.charts.monthly_revenue.labels|json_script:"monthly-labels" }}
+{{ analytics.charts.monthly_revenue.values|json_script:"monthly-values" }}
 
 <script>
 
-const labels = {{ analytics.charts.monthly_revenue.labels|safe }};
-const values = {{ analytics.charts.monthly_revenue.values|safe }};
+const labels = JSON.parse(
+    document.getElementById("monthly-labels").textContent
+);
+
+const values = JSON.parse(
+    document.getElementById("monthly-values").textContent
+);
 
 const ctx = document.getElementById('revenueChart');
 
