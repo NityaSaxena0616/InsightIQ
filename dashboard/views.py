@@ -199,7 +199,11 @@ def home(request):
     orders = 0
     customers = 0
 
-    latest_file = SalesFile.objects.last()
+    file_id = request.GET.get('file_id')
+    if file_id:
+        latest_file = SalesFile.objects.filter(id=file_id).first() or SalesFile.objects.last()
+    else:
+        latest_file = SalesFile.objects.last()
 
     if latest_file:
         try:
@@ -318,7 +322,11 @@ def analytics(request):
         'analytics': None,
     }
 
-    latest_file = SalesFile.objects.last()
+    file_id = request.GET.get('file_id')
+    if file_id:
+        latest_file = SalesFile.objects.filter(id=file_id).first() or SalesFile.objects.last()
+    else:
+        latest_file = SalesFile.objects.last()
 
     if latest_file:
         try:

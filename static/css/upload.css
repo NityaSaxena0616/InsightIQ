@@ -1,0 +1,304 @@
+/* =====================================================
+   UPLOAD WORKSPACE STYLES
+   ===================================================== */
+
+/* Layout & Spacing */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.upload-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--card-padding);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+}
+
+/* Card Heading Header */
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.section-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.15rem;
+}
+
+.section-icon.purple {
+    background: var(--color-profit);
+    color: var(--color-profit-text);
+}
+
+.section-icon.blue {
+    background: var(--color-customers);
+    color: var(--color-customers-text);
+}
+
+.section-icon.green {
+    background: var(--color-revenue);
+    color: var(--color-revenue-text);
+}
+
+.section-heading h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.section-heading p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 1px;
+}
+
+/* Sales Dataset Upload Zone (Dasher dropzone style) */
+.upload-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.upload-zone input[type="file"] {
+    width: 100%;
+    padding: 36px 24px;
+    border: 2px dashed rgba(99, 102, 241, 0.25);
+    border-radius: var(--radius-md);
+    background: rgba(99, 102, 241, 0.01);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: var(--transition-base);
+    outline: none;
+}
+
+.upload-zone input[type="file"]:hover {
+    border-color: var(--brand-primary);
+    background: rgba(99, 102, 241, 0.03);
+}
+
+/* Modern File Selector Button */
+.upload-zone input[type="file"]::file-selector-button {
+    background: var(--brand-primary);
+    color: var(--text-inverse);
+    border: none;
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    margin-right: 14px;
+    box-shadow: 0 2px 6px rgba(99, 102, 241, 0.15);
+    transition: var(--transition-base);
+}
+
+.upload-zone input[type="file"]::file-selector-button:hover {
+    background: var(--brand-primary-hover);
+}
+
+.upload-zone small {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Info Box / Examples Grid (Notion style) */
+.info-box {
+    background: rgba(15, 23, 42, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.info-box h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.example-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+}
+
+.example-grid span {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.example-grid span:hover {
+    border-color: var(--border-color-hover);
+    transform: translateY(-1px);
+}
+
+/* Form Inputs & Fields */
+.field-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+.upload-card input[type="file"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    outline: none;
+    transition: var(--transition-base);
+}
+
+.upload-card input[type="file"]:hover {
+    border-color: var(--brand-primary-light);
+}
+
+.upload-card input[type="file"]::file-selector-button {
+    background: var(--brand-primary-light);
+    color: var(--brand-primary);
+    border: none;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    margin-right: 10px;
+    transition: var(--transition-base);
+}
+
+.upload-card input[type="file"]::file-selector-button:hover {
+    background: var(--brand-primary);
+    color: var(--text-inverse);
+}
+
+.field-help {
+    font-size: 0.725rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+/* Linear Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: var(--text-muted);
+    font-size: 0.725rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.divider::before {
+    margin-right: 1rem;
+}
+
+.divider::after {
+    margin-left: 1rem;
+}
+
+/* Textarea Notes */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    outline: none;
+    resize: vertical;
+    transition: var(--transition-base);
+}
+
+textarea:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
+}
+
+/* Checkbox Options */
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+.checkbox-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--brand-primary);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+.checkbox-row label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Submit Section Button */
+.submit-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.upload-btn {
+    padding: 14px 28px;
+    font-size: 0.9rem;
+    width: auto;
+}

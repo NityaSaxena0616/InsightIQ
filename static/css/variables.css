@@ -1,106 +1,91 @@
 /* ============================================
-   InsightIQ Design System
+   InsightIQ Design System Tokens
+   Inspired by Linear, Stripe, Notion, and Canva
    ============================================ */
 
-:root{
+:root {
+    /* Fonts */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
 
-    /* =======================
-       Brand Colors
-    ======================= */
+    /* Base Theme Colors */
+    --bg-app: #F6F8FA;
+    --bg-card: #FFFFFF;
+    --bg-sidebar: #FFFFFF;
+    --border-color: rgba(15, 23, 42, 0.05);
+    --border-color-hover: rgba(99, 102, 241, 0.15);
 
-    --primary: #A78BFA;
-    --primary-hover: #8B5CF6;
+    /* Text Colors */
+    --text-primary: #0F172A;   /* Slate 900 */
+    --text-secondary: #475569; /* Slate 600 */
+    --text-muted: #94A3B8;     /* Slate 400 */
+    --text-inverse: #FFFFFF;
 
-    --secondary: #C4B5FD;
+    /* Accent & Brand Colors */
+    --brand-primary: #6366F1;       /* Indigo 500 */
+    --brand-primary-hover: #4F46E5; /* Indigo 600 */
+    --brand-primary-light: rgba(99, 102, 241, 0.06);
+    
+    --brand-secondary: #8B5CF6;     /* Violet 500 */
+    --brand-secondary-hover: #7C3AED;
+    --brand-secondary-light: rgba(139, 92, 246, 0.06);
 
-    /* =======================
-       Pastel Analytics Colors
-    ======================= */
+    /* Pastel Accent Colors for Analytics / States */
+    --color-revenue: #ECFDF5;       /* Soft Light Emerald */
+    --color-revenue-text: #065F46;
+    --color-revenue-icon: #10B981;
 
-    --revenue: #C7F9CC;
-    --profit: #E9D5FF;
-    --orders: #FFE5B4;
-    --customers: #BFDBFE;
+    --color-profit: #F5F3FF;        /* Soft Light Violet */
+    --color-profit-text: #6B21A8;
+    --color-profit-icon: #8B5CF6;
 
-    --warning: #FEF3C7;
-    --danger: #FECACA;
+    --color-orders: #FFFBEB;        /* Soft Light Amber */
+    --color-orders-text: #92400E;
+    --color-orders-icon: #F59E0B;
 
-    /* =======================
-       Backgrounds
-    ======================= */
+    --color-customers: #EFF6FF;     /* Soft Light Blue */
+    --color-customers-text: #1E40AF;
+    --color-customers-icon: #3B82F6;
 
-    --bg: #F8FAFC;
+    --color-danger: #FEF2F2;        /* Soft Light Red */
+    --color-danger-text: #991B1B;
+    
+    --color-warning: #FFFBEB;
+    --color-warning-text: #92400E;
 
-    --card: #FFFFFF;
+    /* Spacing & Layout */
+    --sidebar-width: 270px;
+    --navbar-height: 80px;
+    --page-padding: 32px;
+    --card-padding: 24px;
 
-    --sidebar: #FFFFFF;
+    /* Border Radii (20px-24px as requested) */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+    --radius-pill: 9999px;
 
-    --navbar: rgba(255,255,255,.80);
+    /* Shadows (Multi-layered, high-end, Stripe/Linear style) */
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+    
+    /* Elegant soft card shadow */
+    --shadow-card: 
+        0 0 0 1px rgba(15, 23, 42, 0.04),
+        0 2px 4px rgba(15, 23, 42, 0.01),
+        0 8px 16px rgba(15, 23, 42, 0.02),
+        0 16px 32px rgba(15, 23, 42, 0.03);
 
-    /* =======================
-       Text
-    ======================= */
+    --shadow-card-hover: 
+        0 0 0 1px rgba(99, 102, 241, 0.12),
+        0 4px 8px rgba(15, 23, 42, 0.01),
+        0 16px 32px rgba(15, 23, 42, 0.04),
+        0 24px 48px rgba(15, 23, 42, 0.05);
 
-    --text: #334155;
-
-    --text-light: #64748B;
-
-    --text-muted: #94A3B8;
-
-    /* =======================
-       Borders
-    ======================= */
-
-    --border: #E5E7EB;
-
-    /* =======================
-       Radius
-    ======================= */
-
-    --radius-sm:12px;
-    --radius:18px;
-    --radius-lg:24px;
-    --radius-xl:32px;
-
-    /* =======================
-       Shadows
-    ======================= */
-
-    --shadow-sm:
-        0 4px 12px rgba(15,23,42,.05);
-
-    --shadow:
-
-        0 8px 30px rgba(15,23,42,.08);
-
-    --shadow-lg:
-
-        0 15px 40px rgba(15,23,42,.10);
-
-    /* =======================
-       Animation
-    ======================= */
-
-    --transition:.30s ease;
-
-    /* =======================
-       Sidebar
-    ======================= */
-
-    --sidebar-width:280px;
-
-    /* =======================
-       Navbar
-    ======================= */
-
-    --navbar-height:80px;
-
-    /* =======================
-       Layout
-    ======================= */
-
-    --page-padding:40px;
-
-    --card-padding:24px;
-
+    /* Animation Transitions */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }

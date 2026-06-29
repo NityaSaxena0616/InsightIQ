@@ -18,18 +18,18 @@
 
     <!-- CSS -->
 
-    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
-    <link rel="stylesheet" href="{% static 'css/cards.css' %}">
-    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-    <link rel="stylesheet" href="{% static 'css/upload.css' %}">
-    <link rel="stylesheet" href="{% static 'css/analytics.css' %}">
-    <link rel="stylesheet" href="{% static 'css/reports.css' %}">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/cards.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/upload.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/analytics.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/reports.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=4">
 
 </head>
 
@@ -79,8 +79,8 @@
                 </a>
 
                 <a href="{% url 'reports' %}" class="{% if request.resolver_match.url_name == 'reports' %}active{% endif %}">
-                    <i class="fa-solid fa-file-lines"></i>
-                    Report Center
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    History
                 </a>
 
             </nav>
@@ -143,6 +143,8 @@
                         type="text"
                         placeholder="Search datasets, reports...">
 
+                    <kbd class="search-kbd">Ctrl K</kbd>
+
                 </div>
 
                 <div class="icon-btn">
@@ -198,6 +200,8 @@
         </div>
 
     </main>
+
+    <script src="{% static 'js/dashboard.js' %}"></script>
 
 </body>
 

@@ -1,0 +1,118 @@
+/* ==========================================
+   BUTTONS & INTERACTIVE ELEMENTS
+   ========================================== */
+
+/* Base Button */
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: var(--radius-md); /* 14px */
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-base);
+    border: 1px solid transparent;
+}
+
+/* Primary Button (Premium Indigo Glow) */
+.primary-btn {
+    background: linear-gradient(to bottom, var(--brand-primary), var(--brand-primary-hover));
+    color: var(--text-inverse);
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.primary-btn:hover {
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+    background: linear-gradient(to bottom, var(--brand-primary-hover), var(--brand-primary-hover));
+}
+
+.primary-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Secondary Button (Sleek Outline) */
+.secondary-btn {
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.secondary-btn:hover {
+    background: rgba(15, 23, 42, 0.02);
+    border-color: var(--border-color-hover);
+    color: var(--brand-primary);
+    transform: translateY(-1.5px);
+    box-shadow: var(--shadow-md);
+}
+
+.secondary-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* List Action Buttons (Quick Actions) */
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    position: relative;
+    white-space: nowrap;
+}
+
+.action-btn i {
+    font-size: 1rem;
+    color: var(--text-muted);
+    transition: var(--transition-base);
+}
+
+.action-btn:hover {
+    background: var(--brand-primary-light);
+    color: var(--brand-primary);
+    border-color: rgba(99, 102, 241, 0.15);
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+}
+
+.action-btn:hover i {
+    color: var(--brand-primary);
+    transform: scale(1.1);
+}
+
+/* Add a sliding chevron-right on hover via CSS */
+.action-btn::after {
+    content: "\f054"; /* chevron-right */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-left: auto;
+    font-size: 0.75rem;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: var(--transition-base);
+    color: var(--brand-primary);
+}
+
+.action-btn:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}

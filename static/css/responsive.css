@@ -1,0 +1,81 @@
+/* =====================================================
+   RESPONSIVE MOBILE LAYOUT
+   ===================================================== */
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-base);
+}
+
+/* Tablet & Mobile Screens */
+@media (max-width: 991px) {
+    .sidebar {
+        left: -320px; /* Hide completely offscreen */
+        box-shadow: var(--shadow-xl);
+    }
+    
+    .sidebar-active .sidebar {
+        left: 20px; /* Slide in */
+    }
+    
+    .sidebar-active .sidebar-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .topbar {
+        margin-bottom: 24px;
+    }
+    
+    .menu-toggle {
+        display: flex; /* Show menu toggle hamburger */
+    }
+    
+    /* Hide some desktop items on mobile to save space */
+    .topbar-right .search-box,
+    .topbar-right .dataset-chip {
+        display: none;
+    }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 576px) {
+    .topbar-left {
+        max-width: 60%;
+    }
+    
+    .topbar-title {
+        font-size: 1.1rem;
+    }
+    
+    .topbar-subtitle {
+        font-size: 0.75rem;
+    }
+    
+    .content {
+        padding: 16px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .dashboard-header p {
+        font-size: 0.85rem;
+    }
+}

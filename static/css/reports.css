@@ -1,0 +1,216 @@
+/* =====================================================
+   HISTORY & REPORTS TABLE STYLES
+   ===================================================== */
+
+.table-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--card-padding);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Table Header layout */
+.table-header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.table-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.table-header p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* Search Box Styles */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box i {
+    position: absolute;
+    left: 14px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+
+.search-box input {
+    padding: 10px 16px 10px 38px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background: var(--bg-app);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    width: 240px;
+    transition: var(--transition-fast);
+}
+
+.search-box input:focus {
+    border-color: var(--color-primary);
+    background: var(--bg-card);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+}
+
+/* Scrollable Container */
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Semantic Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Headers styling */
+th {
+    padding: 14px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Row elements */
+td {
+    padding: 16px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr {
+    transition: var(--transition-fast);
+}
+
+tbody tr:hover {
+    background: rgba(99, 102, 241, 0.015);
+}
+
+/* Custom cell formats */
+.file-name-cell {
+    font-weight: 600;
+}
+
+.file-name-cell a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+    width: fit-content;
+}
+
+.file-name-cell a:hover {
+    color: var(--color-primary);
+}
+
+.file-name-cell a i {
+    font-size: 1.15rem;
+    color: #10B981; /* Green sheet color */
+    background: rgba(16, 185, 129, 0.08);
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.file-name-cell a:hover i {
+    transform: scale(1.05);
+    background: rgba(99, 102, 241, 0.08);
+    color: var(--color-primary);
+}
+
+.date-cell {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.notes-cell {
+    color: var(--text-muted);
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Status Pill Badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-badge.status-completed {
+    background: rgba(16, 185, 129, 0.08);
+    color: #059669;
+}
+
+.status-badge.status-pending {
+    background: rgba(245, 158, 11, 0.08);
+    color: #d97706;
+}
+
+.status-badge.status-failed {
+    background: rgba(239, 68, 68, 0.08);
+    color: #dc2626;
+}
+
+/* Empty State */
+.empty-table-cell {
+    padding: 48px 0 !important;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.empty-table-cell i {
+    font-size: 2.5rem;
+    color: rgba(15, 23, 42, 0.15);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.empty-table-cell p {
+    font-size: 0.9rem;
+    font-weight: 600;
+}

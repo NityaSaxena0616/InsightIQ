@@ -1,57 +1,207 @@
 {% extends 'layouts/base.html' %}
+{% load static %}
 
 {% block content %}
 
-<h2>Reports</h2>
+<section class="dashboard-header">
 
-<div class="dashboard-grid">
-
-    <div class="card metric-card">
-        <div class="metric-label">Total Reports</div>
-        <div class="metric-value">{{ total_reports }}</div>
+    <div>
+        <h1>History</h1>
+        <p>View your uploaded datasets, processing statuses, and notes.</p>
     </div>
 
-    <div class="card metric-card revenue">
-        <div class="metric-label">Pending Reports</div>
-        <div class="metric-value">{{ pending_reports }}</div>
+</section>
+
+
+<section class="metrics-grid">
+
+    <div class="metric-card customer-card">
+
+        <div class="metric-icon">
+            <i class="fa-solid fa-database"></i>
+        </div>
+
+        <div class="metric-info">
+
+            <span class="metric-title">Total Uploads</span>
+
+            <h2>{{ total_reports }}</h2>
+
+            <small>All datasets</small>
+
+        </div>
+
     </div>
 
-    <div class="card metric-card users">
-        <div class="metric-label">Completed Reports</div>
-        <div class="metric-value">{{ completed_reports }}</div>
+
+    <div class="metric-card order-card">
+
+        <div class="metric-icon">
+            <i class="fa-solid fa-hourglass-half"></i>
+        </div>
+
+        <div class="metric-info">
+
+            <span class="metric-title">Pending</span>
+
+            <h2>{{ pending_reports }}</h2>
+
+            <small>Awaiting processing</small>
+
+        </div>
+
     </div>
 
-    <div class="card metric-card conversion">
-        <div class="metric-label">Failed Reports</div>
-        <div class="metric-value">{{ failed_reports }}</div>
+
+    <div class="metric-card revenue-card">
+
+        <div class="metric-icon">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <div class="metric-info">
+
+            <span class="metric-title">Completed</span>
+
+            <h2>{{ completed_reports }}</h2>
+
+            <small>Processed successfully</small>
+
+        </div>
+
+    </div>
+
+
+    <div class="metric-card profit-card">
+
+        <div class="metric-icon">
+            <i class="fa-solid fa-circle-xmark"></i>
+        </div>
+
+        <div class="metric-info">
+
+            <span class="metric-title">Failed</span>
+
+            <h2>{{ failed_reports }}</h2>
+
+            <small>Errors encountered</small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="table-card">
+
+    <div class="table-header">
+        
+        <div class="table-header-left">
+            <h3><i class="fa-solid fa-clock-rotate-left"></i> Upload History</h3>
+            <p>A complete list of datasets submitted to InsightIQ</p>
+        </div>
+
+        <div class="table-header-right">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="tableSearch" placeholder="Search files...">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>File</th>
+
+                    <th>Uploaded</th>
+
+                    <th>Status</th>
+
+                    <th>Notes / Error</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for report in reports %}
+
+                <tr class="table-row">
+
+                    <td class="file-name-cell">
+                        <a href="{% url 'analytics' %}?file_id={{ report.id }}" title="View analytics dashboard for this dataset">
+                            <i class="fa-regular fa-file-excel"></i>
+                            <span>{{ report.file.name }}</span>
+                        </a>
+                    </td>
+
+                    <td class="date-cell">{{ report.uploaded_at|date:"Y-m-d H:i" }}</td>
+
+                    <td>
+                        <span class="status-badge status-{{ report.status }}">
+                            {{ report.get_status_display }}
+                        </span>
+                    </td>
+
+                    <td class="notes-cell">
+                        {{ report.error_message|default:report.notes|default:"—" }}
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="4" class="empty-table-cell">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <p>No files have been uploaded yet.</p>
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
     </div>
 
 </div>
 
-<div class="table-container reports-table">
-    <div class="chart-title">Upload history</div>
-    <table>
-        <thead>
-            <tr>
-                <th>File</th>
-                <th>Uploaded</th>
-                <th>Status</th>
-                <th>Notes / Error</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for report in reports %}
-            <tr>
-                <td>{{ report.file.name }}</td>
-                <td>{{ report.uploaded_at|date:"Y-m-d H:i" }}</td>
-                <td><span class="status-badge status-{{ report.status }}">{{ report.get_status_display }}</span></td>
-                <td>{{ report.error_message|default:report.notes|default:"—" }}</td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="4">No files have been uploaded yet.</td></tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('tableSearch');
+    const tableRows = document.querySelectorAll('.table-row');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+
+            tableRows.forEach(row => {
+                const fileNameCell = row.querySelector('.file-name-cell span');
+                if (fileNameCell) {
+                    const text = fileNameCell.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+    }
+});
+</script>
 
 {% endblock %}
